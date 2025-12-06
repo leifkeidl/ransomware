@@ -1,3 +1,5 @@
+mod traverse;
+
 fn main() {
-    println!("Hello, world!");
+    traverse::read_dir();
 }
