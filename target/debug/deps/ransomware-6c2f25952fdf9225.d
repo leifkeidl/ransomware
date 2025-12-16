@@ -1,6 +1,6 @@
-/home/leif/ransom_repo2/target/debug/deps/ransomware-6c2f25952fdf9225.d: src/main.rs src/crypto.rs src/traverse.rs Cargo.toml
+/home/leif/ransom/target/debug/deps/ransomware-6c2f25952fdf9225.d: src/main.rs src/crypto.rs src/traverse.rs Cargo.toml
 
-/home/leif/ransom_repo2/target/debug/deps/libransomware-6c2f25952fdf9225.rmeta: src/main.rs src/crypto.rs src/traverse.rs Cargo.toml
+/home/leif/ransom/target/debug/deps/libransomware-6c2f25952fdf9225.rmeta: src/main.rs src/crypto.rs src/traverse.rs Cargo.toml
 
 src/main.rs:
 src/crypto.rs:

@@ -108,7 +108,7 @@ cargo:rerun-if-env-changed=HOST_PKG_CONFIG_SYSROOT_DIR
 cargo:rerun-if-env-changed=PKG_CONFIG_SYSROOT_DIR
 cargo:rerun-if-changed=build/expando.c
 OPT_LEVEL = Some(0)
-OUT_DIR = Some(/home/leif/ransom_repo2/target/debug/build/openssl-sys-a5d41f774de64dc5/out)
+OUT_DIR = Some(/home/leif/ransom/target/debug/build/openssl-sys-a5d41f774de64dc5/out)
 TARGET = Some(x86_64-unknown-linux-gnu)
 CARGO_ENCODED_RUSTFLAGS = Some()
 HOST = Some(x86_64-unknown-linux-gnu)
@@ -134,7 +134,7 @@ cargo:rerun-if-env-changed=CFLAGS_x86_64_unknown_linux_gnu
 CFLAGS_x86_64_unknown_linux_gnu = None
 cargo:rerun-if-env-changed=CFLAGS_x86_64-unknown-linux-gnu
 CFLAGS_x86_64-unknown-linux-gnu = None
-version: 3_5_3
+version: 3_6_0
 cargo:rustc-cfg=osslconf="OPENSSL_NO_SSL3_METHOD"
 cargo:conf=OPENSSL_NO_SSL3_METHOD
 cargo:rustc-cfg=openssl
@@ -155,5 +155,5 @@ cargo:rustc-cfg=ossl320
 cargo:rustc-cfg=ossl330
 cargo:rustc-cfg=ossl340
 cargo:rustc-cfg=ossl350
-cargo:version_number=30500030
+cargo:version_number=30600000
 cargo:include=/usr/include

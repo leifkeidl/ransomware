@@ -16,7 +16,16 @@ pub fn visit_dirs(dir: &Path) -> io::Result<()> {
             } else {
                 println!("encrypting: {}", path.display());
                 let s = path.to_string_lossy();
-                crypto::encrypt(&s);
+                // Handle encryption result
+                match crypto::encrypt(&s) {
+                    Ok(()) => {
+                        println!("encrypted: {}", path.display());
+                    }
+                    Err(e) => {
+                        eprintln!("skipped {}: {}", path.display(), e);
+                        // continue walking instead of crashing
+                    }
+                }
             }
         }
     }
