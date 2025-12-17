@@ -4,8 +4,8 @@
 **Course Project**
 
 ## Overview
-This project explores the design and behavior of ransomware in a **controlled, academic, and virtualized environment**. The objective is to understand how ransomware operates, how encryption affects file availability, and how defensive strategies may mitigate such attacks.  
-This project **is not intended for real-world deployment**, and all testing is performed inside an isolated Virtual Machine.
+This project explores the design and behavior of ransomware in a **controlled, academic, and virtualized environment**. The objective is to understand how ransomware operates and changes a live system.
+This project **is not intended for real-world deployment**, and all testing is performed inside an isolated Virtual Machine specifically Seed Ubuntu (20.04).
 
 ## Project Goals
 - Execute a program that encrypts the contents of the user’s **home directory** inside a Linux VM.
@@ -38,3 +38,49 @@ However, successful real-world ransomware frequently does **not** provide functi
 - Rust Language Documentation: https://doc.rust-lang.org/stable/
 - OpenSSL Rust Crate Documentation: https://docs.rs/openssl/latest/openssl/
 
+## User Manual
+
+> **WARNING (VM ONLY):** This program **encrypts files under your Linux user’s `$HOME` directory**. Run it **only** inside an isolated class VM (Seed Ubuntu 20.04). **Take a VM snapshot first** so you can revert after testing.
+
+### Prerequisites
+- You are inside your **Seed Ubuntu 20.04 VM** (not your host machine).
+- Rust tooling installed (`cargo`, `rustc`).
+- Recommended: create a VM snapshot / restore point before running.
+
+### Get the code
+
+#### Clone (HTTPS)
+```bash
+git clone https://github.com/leifkeidl/ransomware.git YOUR_DIR_NAME
+```
+
+#### Clone (SSH)
+```bash
+git clone git@github.com:leifkeidl/ransomware.git YOUR_DIR_NAME
+```
+
+#### Enter the repository
+```bash
+cd YOUR_DIR_NAME
+```
+
+### Build and run
+
+#### Option A: Build + run with Cargo (debug)
+```bash
+cargo run
+```
+- This builds and runs the program from `target/debug/`.
+
+#### Option B: Build + run optimized binary
+```bash
+cargo build --release
+chmod +x target/release/ransomware
+./target/release/ransomware
+```
+
+### Result
+- The program attempts to recursively process files under **`$HOME`**.
+- Files become encrypted by AES-GCM (256-bit random keys)
+- The program is resilient to errors and will safely continue if a file fails to encrypt.
+- The user space directories get encrypted while system files remain unchanged.
